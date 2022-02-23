@@ -30,13 +30,21 @@ class SettingsActivity : AppCompatActivity() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
             prefs = PreferenceManager.getDefaultSharedPreferences(this.requireContext())
+            updatePrefIcon()
+        }
+
+        private fun updatePrefIcon(){
+            val prefCat: ListPreference? = findPreference("tile_icon") as ListPreference?
+            val id = resources.getIdentifier(prefs.getString("tile_icon", "ic_baseline_ac_unit_24"),
+                "drawable", requireActivity().packageName)
+            prefCat?.setIcon(id)
         }
 
         private var listener: SharedPreferences.OnSharedPreferenceChangeListener =
             SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
                 when (key) {
                     "tile_icon" ->{
-                        Toast.makeText(this.context, "icon changed", Toast.LENGTH_SHORT).show()
+                        updatePrefIcon()
                     }
                     "tile_title" ->{
 
