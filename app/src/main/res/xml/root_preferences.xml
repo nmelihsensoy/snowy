@@ -1,7 +1,52 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory
         app:title="@string/settings_header">
     </PreferenceCategory>
+    <ListPreference
+        app:defaultValue="v_up"
+        app:entries="@array/stop_trigger_entries"
+        app:entryValues="@array/stop_trigger_values"
+        app:key="stop_trigger"
+        app:useSimpleSummaryProvider="true"
+        app:title="@string/stop_trigger_title" />
+    <EditTextPreference
+        app:defaultValue="@string/app_name"
+        app:key="tile_title"
+        android:selectAllOnFocus="true"
+        app:singleLine="true"
+        app:useSimpleSummaryProvider="true"
+        app:title="@string/tile_title_title" />
+    <ListPreference
+        app:defaultValue="ic_baseline_ac_unit_24"
+        app:entries="@array/tile_icon_entries"
+        app:entryValues="@array/tile_icon_values"
+        app:key="tile_icon"
+        app:useSimpleSummaryProvider="true"
+        app:icon="@drawable/ic_baseline_ac_unit_24"
+        app:title="@string/tile_icon_title" />
+    <PreferenceCategory app:title="@string/onstart_header">
+
+    </PreferenceCategory>
+    <SwitchPreference
+        app:defaultValue="true"
+        app:key="onstart_alert"
+        app:title="@string/alert_title" />
+    <SwitchPreference
+        app:defaultValue="false"
+        app:key="onstart_vibrate"
+        app:title="@string/vibrate_title" />
+    <PreferenceCategory app:title="@string/onstop_header">
+
+    </PreferenceCategory>
+    <SwitchPreference
+        app:defaultValue="false"
+        app:key="onstop_alert"
+        app:title="@string/alert_title" />
+    <SwitchPreference
+        app:defaultValue="true"
+        app:key="onstop_vibrate"
+        app:title="@string/vibrate_title" />
 
 </PreferenceScreen>

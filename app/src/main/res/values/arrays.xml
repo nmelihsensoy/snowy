@@ -1,2 +1,34 @@
 <resources>
+    <string-array name="stop_trigger_entries">
+        <item>Volume Down</item>
+        <item>Volume Up</item>
+    </string-array>
+
+    <string-array name="stop_trigger_values">
+        <item>v_dwn</item>
+        <item>v_up</item>
+    </string-array>
+
+    <string-array name="tile_icon_entries">
+        <item>Snowy icon</item>
+        <item>Snowy icon alternate</item>
+        <item>Native like 1</item>
+        <item>Native like 2</item>
+        <item>Native like 3</item>
+        <item>Native like 4</item>
+        <item>Native like 5</item>
+        <item>Native like 6</item>
+    </string-array>
+
+    <string-array name="tile_icon_values">
+        <item>ic_baseline_ac_unit_24</item>
+        <item>ic_snowflake_solid</item>
+        <item>ic_baseline_app_blocking_24</item>
+        <item>ic_baseline_do_not_touch_24</item>
+        <item>ic_baseline_phonelink_erase_24</item>
+        <item>ic_baseline_phonelink_lock_24</item>
+        <item>ic_baseline_screen_lock_portrait_24</item>
+        <item>ic_baseline_screen_lock_rotation_24</item>
+    </string-array>
+
 </resources>

@@ -3,4 +3,11 @@
     <!-- Settings Activity Title -->
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="settings_header">Settings</string>
+    <string name="stop_trigger_title">Stop trigger</string>
+    <string name="tile_icon_title">Tile icon</string>
+    <string name="tile_title_title">Tile title</string>
+    <string name="onstart_header">On start</string>
+    <string name="onstop_header">On stop</string>
+    <string name="alert_title">Show alert</string>
+    <string name="vibrate_title">Vibrate</string>
 </resources>
