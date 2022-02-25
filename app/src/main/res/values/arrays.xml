@@ -18,16 +18,22 @@
         <item>Native like 4</item>
         <item>Native like 5</item>
         <item>Native like 6</item>
+        <item>Native like 7</item>
+        <item>Native like 8</item>
+        <item>Native like 9</item>
     </string-array>
 
     <string-array name="tile_icon_values">
         <item>ic_baseline_ac_unit_24</item>
-        <item>ic_snowflake_solid</item>
+        <item>ic_iconoir_snowflake</item>
         <item>ic_baseline_app_blocking_24</item>
+        <item>ic_baseline_block_24</item>
         <item>ic_baseline_do_not_touch_24</item>
-        <item>ic_baseline_phonelink_erase_24</item>
         <item>ic_baseline_phonelink_lock_24</item>
         <item>ic_baseline_screen_lock_portrait_24</item>
+        <item>ic_baseline_phonelink_erase_24</item>
+        <item>ic_baseline_lock_24</item>
+        <item>ic_baseline_screen_lock_landscape_24</item>
         <item>ic_baseline_screen_lock_rotation_24</item>
     </string-array>
 

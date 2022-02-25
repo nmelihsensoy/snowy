@@ -2,6 +2,8 @@ package com.nmelihsensoy.snowy
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.ListPreference
@@ -23,6 +25,18 @@ class SettingsActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_action, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //val id = item.itemId
+        Toast.makeText(this, "About:", Toast.LENGTH_LONG).show()
+
+        return super.onOptionsItemSelected(item)
+    }
+
     class SettingsFragment : PreferenceFragmentCompat() {
 
         lateinit var prefs: SharedPreferences
@@ -35,8 +49,7 @@ class SettingsActivity : AppCompatActivity() {
 
         private fun updatePrefIcon(){
             val prefCat: ListPreference? = findPreference("tile_icon") as ListPreference?
-            val id = resources.getIdentifier(prefs.getString("tile_icon", "ic_baseline_ac_unit_24"),
-                "drawable", requireActivity().packageName)
+            val id = SnowyUtils().getTileIconRes(resources, prefs, requireActivity().packageName)
             prefCat?.setIcon(id)
         }
 
@@ -61,6 +74,5 @@ class SettingsActivity : AppCompatActivity() {
             super.onPause()
             prefs.unregisterOnSharedPreferenceChangeListener(listener)
         }
-
     }
 }

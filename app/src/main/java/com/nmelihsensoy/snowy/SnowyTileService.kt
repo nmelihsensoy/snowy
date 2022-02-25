@@ -9,14 +9,14 @@ class SnowyTileService : TileService() {
 
     override fun onClick() {
         super.onClick()
-        Runtime.getRuntime().exec("cmd statusbar collapse")
+        val nativeLibPath = this.applicationContext.applicationInfo.nativeLibraryDir
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        if (prefs.getBoolean("onstart_alert", true)){
-            Toast.makeText(this, getString(R.string.onstart_alert_msg), Toast.LENGTH_SHORT).show()
-        }
+        val trigger = prefs.getString("stop_trigger", "v_up")
 
-        if (prefs.getBoolean("onstart_vibrate", false)){
-            Runtime.getRuntime().exec("cmd vibrator vibrate -f 100 snowy")
+        SnowyUtils().blockTouchScreen(nativeLibPath, trigger!!)
+        if (prefs.getBoolean("onstart_alert", true)){
+            Toast.makeText(this, getString(R.string.onstart_alert_msg),
+                Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -24,8 +24,7 @@ class SnowyTileService : TileService() {
         super.onStartListening()
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val tile = qsTile
-        val id = resources.getIdentifier(prefs.getString("tile_icon", "ic_baseline_ac_unit_24"),
-            "drawable", packageName)
+        val id = SnowyUtils().getTileIconRes(resources, prefs, packageName)
         tile.label = prefs.getString("tile_title", R.string.app_name.toString())
         tile.icon = Icon.createWithResource(this, id)
 

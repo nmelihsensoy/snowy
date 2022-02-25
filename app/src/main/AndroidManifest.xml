@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.nmelihsensoy.snowy">
 
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
@@ -12,11 +13,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Snowy">
+        android:theme="@style/Theme.Snowy"
+        android:extractNativeLibs="true">
         <activity
             android:name=".SettingsActivity"
-            android:exported="true"
-            android:label="@string/app_name">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
@@ -34,6 +35,13 @@
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
+        <receiver android:name=".SnowyToaster" android:enabled="true" android:exported="true"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="com.nmelihsensoy.snowy.TOASTER"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
