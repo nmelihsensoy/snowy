@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="snowy_400">#26C5DA</color>
     <color name="snowy_600">#01ABC1</color>
+    <color name="snowy_title">#266bda</color>
 </resources>

@@ -35,8 +35,7 @@
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
-        <receiver android:name=".SnowyToaster" android:enabled="true" android:exported="true"
-            tools:ignore="ExportedReceiver">
+        <receiver android:name=".SnowyToaster" android:enabled="false" android:exported="true">
             <intent-filter>
                 <action android:name="com.nmelihsensoy.snowy.TOASTER"/>
             </intent-filter>

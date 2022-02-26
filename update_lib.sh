@@ -1,4 +1,5 @@
 #!/bin/bash
+# Downloads latest blockevent binary to apps native library folder.
 
 repo_latest_json="https://api.github.com/repos/nmelihsensoy/blockevent/releases/latest"
 jni_dir="app/src/main/jniLibs"
@@ -7,8 +8,6 @@ checksums="checksums.txt"
 tmp_dir="tmp"
 binaries=("blockevent_arm" "blockevent_arm64" "blockevent_x86" "blockevent_x86_64")
 abis=("armeabi-v7a" "arm64-v8a" "x86" "x86_64")
-declare -a output_files
-
 egrep_exp=""
 
 for bin in ${binaries[@]}; do
@@ -16,12 +15,6 @@ for bin in ${binaries[@]}; do
 done
 
 egrep_exp="${egrep_exp#|}|$checksums"
-
-echo "$egrep_exp"
-
-#repo_latest_json="$(curl -s $repo_latest_json)"
-
-#echo "$repo_latest_json" | egrep browser_download_url.*blockevent_arm64 | cut -d : -f 2,3 | tr -d \"
 
 mkdir $tmp_dir
 
