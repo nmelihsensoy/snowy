@@ -11,7 +11,7 @@ import android.widget.Toast
 
 class SnowyToaster: BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        if (intent != null) {
+        if (intent.extras != null) {
             Toast.makeText(context, intent.getStringExtra("MSG"), Toast.LENGTH_SHORT).show()
             SnowyUtils.disableToaster(context)
         }

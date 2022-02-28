@@ -1,5 +1,5 @@
 #!/bin/bash
-# Downloads latest blockevent binary to apps native library folder.
+# Script to download latest blockevent binary from github to Snowy's native library folder.
 
 repo_latest_json="https://api.github.com/repos/nmelihsensoy/blockevent/releases/latest"
 jni_dir="app/src/main/jniLibs"

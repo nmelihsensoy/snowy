@@ -34,14 +34,14 @@
         app:key="onstart_alert"
         app:title="@string/alert_title" />
     <SwitchPreference
-        app:defaultValue="false"
+        app:defaultValue="true"
         app:key="onstart_vibrate"
         app:title="@string/vibrate_title" />
     <PreferenceCategory app:title="@string/onstop_header">
 
     </PreferenceCategory>
     <SwitchPreference
-        app:defaultValue="false"
+        app:defaultValue="true"
         app:key="onstop_alert"
         app:title="@string/alert_title" />
     <SwitchPreference

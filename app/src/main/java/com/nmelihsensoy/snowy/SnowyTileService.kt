@@ -22,7 +22,7 @@ class SnowyTileService : TileService() {
         if (prefs.getBoolean("onstart_vibrate", true))
             modes.add(SnowyUtils.Companion.Mode.VIBRATE_ONSTART)
 
-        if (prefs.getBoolean("onstop_alert", false))
+        if (prefs.getBoolean("onstop_alert", true))
             modes.add(SnowyUtils.Companion.Mode.TOAST_ONSTOP)
 
         if (prefs.getBoolean("onstop_vibrate", true))

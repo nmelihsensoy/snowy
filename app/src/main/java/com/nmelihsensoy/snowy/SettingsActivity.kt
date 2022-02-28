@@ -72,7 +72,7 @@ class SettingsActivity : AppCompatActivity() {
             val receiver = context?.let { ComponentName(it.applicationContext, SnowyToaster::class.java) }
             val pm = context?.applicationContext?.packageManager
 
-            val onstopAlertVal = prefs.getBoolean("onstop_alert", false)
+            val onstopAlertVal = prefs.getBoolean("onstop_alert", true)
             if (onstopAlertVal){
                 if (receiver != null) {
                     pm?.setComponentEnabledSetting(
