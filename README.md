@@ -5,4 +5,4 @@
 
 | Demo | Settings | Tile |
 |---|---|---|
-| <img src="demo.gif" width="300"> | <img src="screenshot2.png" width="300"> | <img src="screenshot1.png" width="300"> |
+| <img src="demo.gif" width="256"> | <img src="screenshot2.png" width="256"> | <img src="screenshot1.png" width="256"> |
