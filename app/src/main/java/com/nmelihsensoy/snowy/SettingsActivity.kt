@@ -53,7 +53,6 @@ class SettingsActivity : AppCompatActivity() {
             SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
                 when (key) {
                     "tile_icon" -> updatePrefUiIcon()
-                    "onstop_alert" -> updateToaster()
                 }
             }
 
@@ -65,28 +64,6 @@ class SettingsActivity : AppCompatActivity() {
             with (prefs.edit()) {
                 putInt("tile_icon_drawable", id)
                 apply()
-            }
-        }
-
-        private fun updateToaster(){
-            val receiver = context?.let { ComponentName(it.applicationContext, SnowyToaster::class.java) }
-            val pm = context?.applicationContext?.packageManager
-
-            val onstopAlertVal = prefs.getBoolean("onstop_alert", true)
-            if (onstopAlertVal){
-                if (receiver != null) {
-                    pm?.setComponentEnabledSetting(
-                        receiver,
-                        PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                        PackageManager.DONT_KILL_APP)
-                }
-            }else{
-                if (receiver != null) {
-                    pm?.setComponentEnabledSetting(
-                        receiver,
-                        PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                        PackageManager.DONT_KILL_APP)
-                }
             }
         }
 

@@ -30,6 +30,7 @@ class SnowyUtils {
         fun blockTouchScreen(libPath: String, stopTrigger: String, flags: EnumSet<Mode>,
                              onStopMsg: String = ""){
             var blockCmd = mutableListOf("su", "-c")
+            val blockeventCmd = mutableListOf("$libPath/blockevent.so", "-t", "-s", stopTrigger, "-v", "4")
             blockCmd.addAll(collapseCmd)
             blockCmd.add(";")
 
@@ -39,10 +40,13 @@ class SnowyUtils {
             }
 
             if (flags.contains(Mode.VIBRATE_ONSTOP)) {
-                blockCmd.addAll(arrayOf("($libPath/blockevent.so", "-t", "-s", stopTrigger,
-                    "&&", "cmd", "vibrator", "vibrate", "-f", "100", "blockevent)"))
+                blockCmd.add("(")
+                blockCmd.addAll(blockeventCmd)
+                blockCmd.add("&&")
+                blockCmd.addAll(vibrateCmd)
+                blockCmd.add(")")
             }else {
-                blockCmd.addAll(arrayOf("$libPath/blockevent.so", "-t", "-s", stopTrigger))
+                blockCmd.addAll(blockeventCmd)
             }
 
             if (flags.contains(Mode.TOAST_ONSTOP)) {
@@ -50,12 +54,11 @@ class SnowyUtils {
                 blockCmd.addAll(stopAlertCmd)
                 blockCmd.add("\"$onStopMsg\"")
             }
-
             ProcessBuilder(blockCmd).start()
         }
 
         private fun enableToaster(cn: ComponentName, pm: PackageManager){
-            pm?.setComponentEnabledSetting(
+            pm.setComponentEnabledSetting(
                 cn,
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                 PackageManager.DONT_KILL_APP)
