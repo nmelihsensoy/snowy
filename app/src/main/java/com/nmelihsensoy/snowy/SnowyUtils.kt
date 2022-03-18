@@ -30,7 +30,7 @@ class SnowyUtils {
         fun blockTouchScreen(libPath: String, stopTrigger: String, flags: EnumSet<Mode>,
                              onStopMsg: String = ""){
             var blockCmd = mutableListOf("su", "-c")
-            val blockeventCmd = mutableListOf("$libPath/blockevent.so", "-t", "-s", stopTrigger, "-v", "4")
+            val blockeventCmd = mutableListOf("$libPath/blockevent.so", "-d", "0", "-s", stopTrigger, "-v", "0")
             blockCmd.addAll(collapseCmd)
             blockCmd.add(";")
 

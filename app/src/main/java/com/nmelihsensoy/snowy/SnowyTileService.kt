@@ -30,7 +30,7 @@ class SnowyTileService : TileService() {
 
         SnowyUtils.blockTouchScreen(
             this.applicationContext.applicationInfo.nativeLibraryDir,
-            prefs.getString("stop_trigger", "v_up")!!,
+            prefs.getString("stop_trigger", "2")!!,
             modes,
             getString(R.string.onstop_alert_msg))
 

@@ -5,7 +5,7 @@
         app:title="@string/settings_header">
     </PreferenceCategory>
     <ListPreference
-        app:defaultValue="v_up"
+        app:defaultValue="2"
         app:entries="@array/stop_trigger_entries"
         app:entryValues="@array/stop_trigger_values"
         app:key="stop_trigger"
