@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.content.res.Resources
+import android.os.Build
 import java.util.*
 
 class SnowyUtils {
@@ -13,7 +14,11 @@ class SnowyUtils {
             VIBRATE_ONSTART, VIBRATE_ONSTOP, TOAST_ONSTART, TOAST_ONSTOP
         }
         private val collapseCmd = mutableListOf("cmd", "statusbar", "collapse")
-        private val vibrateCmd = mutableListOf("cmd", "vibrator", "vibrate", "-f", "100", "snowy")
+        private val vibrateCmd = if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R) {
+            mutableListOf("cmd", "vibrator", "vibrate", "-f", "100", "snowy")
+        } else {
+            mutableListOf("cmd", "vibrator_manager", "synced", "oneshot", "100", "snowy")
+        }
         private val stopAlertCmd = mutableListOf("am", "broadcast", "-a",
             "com.nmelihsensoy.snowy.TOASTER", "-n", "com.nmelihsensoy.snowy/.SnowyToaster",
             "-e", "MSG")
